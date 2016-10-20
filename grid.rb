@@ -1,5 +1,5 @@
 class Grid
-  attr_reader :d
+	attr_reader :d
 	def initialize(dim)
 		@d = dim
 	end

@@ -13,13 +13,13 @@ class Die
 		@stats[@up] = @stats[@up] + 1
 		side
 	end
-  def num_of_throws
-    s = 0
-    @stats.each do |key,value|
-      s += value
-    end
-    "number of throws: #{s}"
-  end
+	def num_of_throws
+		s = 0
+		@stats.each do |key,value|
+			s += value
+		end
+		"number of throws: #{s}"
+	end
 	private
 	def side
 		@sides[@up]

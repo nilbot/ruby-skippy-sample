@@ -3,7 +3,7 @@ class Point
 	def initialize(x,y)
 		@x = x
 		@y = y
-	end	
+	end 
 	def to_s
 		"[#{@x},#{@y}]"
 	end
