@@ -3,6 +3,7 @@ class Kangaroo
 	def initialize(name)
 		@name = name
 		@pos = Point.new(0,0)
+    @steps = 0
 	end
 	def can_move?(side, grid)
 		candidate = update(side)
@@ -10,11 +11,18 @@ class Kangaroo
 			false
 		else
 			true
-		end	
+		end
 	end
 	def move!(side)
 		@pos = update(side)
+    @steps += 1
 	end
+  def arrived?(grid)
+    @pos.x == grid.d - 1 && @pos.y == grid.d - 1
+  end
+  def steps_taken
+    "number of hops: #{@steps}"
+  end
 	private
 	def update(side)
 		case side
@@ -31,5 +39,3 @@ class Kangaroo
 		end
 	end
 end
-
-

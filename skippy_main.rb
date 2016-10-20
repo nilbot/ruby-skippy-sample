@@ -29,3 +29,25 @@ else
 	end
 end
 
+puts "\n----\n\nnow, the real simulation begins"
+mydie = Die.new(124)
+grid = Grid.new(500)
+start = Time.now
+threshold = 5
+while !skippy.arrived?(grid)
+  current = Time.now
+  elapse = current-start
+  if elapse > threshold
+    threshold += 5
+    puts "#{skippy.name}'s current location: #{skippy.pos}"
+  end
+  hop = mydie.throw_die
+  if skippy.can_move?(hop,grid)
+    skippy.move!(hop)
+  end
+end
+puts skippy.steps_taken
+puts mydie.num_of_throws
+finish = Time.now
+diff = finish - start
+puts "took #{diff} seconds"
